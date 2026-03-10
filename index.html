@@ -229,7 +229,8 @@
                     <p>Tokenization is a fundamental technique in the generative modeling of various modalities. In particular, it plays a critical role in autoregressive (AR) models, which have recently emerged as a compelling option for 3D generation. However, optimal tokenization of 3D shapes remains an open question. State-of-the-art (SOTA) methods primarily rely on geometric level-of-detail (LoD) hierarchies, originally designed for rendering and compression. These spatial hierarchies are often token-inefficient and lack semantic coherence for AR modeling. We propose Level-of-Semantics Tokenization (LoST), which orders tokens by semantic salience, such that early prefixes decode into complete, plausible shapes that possess principal semantics, while subsequent tokens refine instance-specific geometric and semantic details. To train LoST, we introduce Relational Inter-Distance Alignment (RIDA), a novel 3D semantic alignment loss, inspired by relational knowledge distillation, that aligns the relational structure of the 3D shape latent space with that of the semantic DINO feature space. Experiments show that LoST achieves SOTA reconstruction, surpassing previous LoD-based 3D shape tokenizers by large margins on both geometric and semantic reconstruction metrics. Moreover, LoST achieves efficient, high-quality AR 3D generation and enables downstream tasks like semantic retrieval, while using only 0.1%–10% of the tokens needed by prior 3D AR models.</p>
                     </div>
                     <br><br>
-                    <h2 class="title is-3"><span class="gradient-text">LoST</span> Reconstruction Results</h2>
+                    <h2 class="title is-3"><span class="gradient-text">LoST</span> Reconstruction Results</h2>git remote add origin git@github.com:lost3d/lost3d.github.io.git
+git push -u origin main
                     <div class="content has-text-justified">
                         <p>
                             This interactive gallery demonstrates our multi-level tokenization.
@@ -414,14 +415,8 @@ Relational Inter-Distance Alignment objective.</p>
     <h4 class="title is-4">BibTeX</h4><br>
     <div class="bibtex">
         <pre><code>
-@InProceedings{Dutt_2024_CVPR,
-    author    = {Dutt, Niladri Shekhar and Muralikrishnan, Sanjeev and Mitra, Niloy J.},
-    title     = {Diffusion 3D Features (Diff3F): Decorating Untextured Shapes with Distilled Semantic Features},
-    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-    month     = {June},
-    year      = {2024},
-    pages     = {4494-4504}
-}          
+@InProceedings{Dutt_2026_CVPR,    
+} 
       </code></pre>
     </div>
     </div>

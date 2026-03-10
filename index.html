@@ -236,8 +236,7 @@
                     <p>Tokenization is a fundamental technique in the generative modeling of various modalities. In particular, it plays a critical role in autoregressive (AR) models, which have recently emerged as a compelling option for 3D generation. However, optimal tokenization of 3D shapes remains an open question. State-of-the-art (SOTA) methods primarily rely on geometric level-of-detail (LoD) hierarchies, originally designed for rendering and compression. These spatial hierarchies are often token-inefficient and lack semantic coherence for AR modeling. We propose Level-of-Semantics Tokenization (LoST), which orders tokens by semantic salience, such that early prefixes decode into complete, plausible shapes that possess principal semantics, while subsequent tokens refine instance-specific geometric and semantic details. To train LoST, we introduce Relational Inter-Distance Alignment (RIDA), a novel 3D semantic alignment loss, inspired by relational knowledge distillation, that aligns the relational structure of the 3D shape latent space with that of the semantic DINO feature space. Experiments show that LoST achieves SOTA reconstruction, surpassing previous LoD-based 3D shape tokenizers by large margins on both geometric and semantic reconstruction metrics. Moreover, LoST achieves efficient, high-quality AR 3D generation and enables downstream tasks like semantic retrieval, while using only 0.1%–10% of the tokens needed by prior 3D AR models.</p>
                     </div>
                     <br><br>
-                    <h2 class="title is-3"><span class="gradient-text">LoST</span> Reconstruction Results</h2>git remote add origin git@github.com:lost3d/lost3d.github.io.git
-git push -u origin main
+                    <h2 class="title is-3"><span class="gradient-text">LoST</span> Reconstruction Results</h2>
                     <div class="content has-text-justified">
                         <p>
                             This interactive gallery demonstrates our multi-level tokenization.
@@ -398,7 +397,7 @@ Relational Inter-Distance Alignment objective.</p>
         <div class="container" style="max-width: 75%;">
             <div class="section-heading">
                 <h3 class="title is-3">Ablation: Impact of RIDA</h3><br>
-                <p class="subtitle is-6">We compare reconstructions without versus with the proposed RIDA alignment loss at different token budgets. Each pair of columns shares the same token count, showing how RIDA enhances semantic fidelity. We note that the advantages of RIDA is more visible in challenging scenarios, particularly at times when the class can be incorrect when using few tokens (see example of hat where using few tokens without RIDA generates a cup).</p>
+                <p class="subtitle is-6" style="text-align: left;">We compare reconstructions without versus with the proposed RIDA alignment loss at different token budgets. Each pair of columns shares the same token count, showing how RIDA enhances semantic fidelity. We note that the advantages of RIDA is more visible in challenging scenarios, particularly at times when the class can be incorrect when using few tokens (see example of hat where using few tokens without RIDA generates a cup).</p>
             </div>
             <div id="ablation-header" class="model-header-row" style="--column-count: 6;">
                 <div class="model-header-cell">w/o RIDA (1 token)</div>

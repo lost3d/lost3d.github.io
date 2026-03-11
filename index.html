@@ -215,10 +215,10 @@
             <br>
 
                 <div class="external-link">
-                    <a class="btn" href="" role="button" target="_blank">
-                        <i class="ai ai-arxiv"></i> Arxiv </a>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a class="btn" href="" role="button" target="_blank">
-                        <i class="fa fa-file-pdf"></i> Paper </a>
+                    <a class="external-link button is-normal is-rounded" style="background-color: #b31b1b; color: white;" href="" role="button" target="_blank">
+                        <i class="ai ai-arxiv"></i> &nbsp;&nbsp;Arxiv </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="external-link button is-normal is-rounded is-dark" href="" role="button" target="_blank">
+                        <i class="fas fa-file-pdf"></i> &nbsp;&nbsp;Paper </a>
                 </div>
                 </div>
             </div>
@@ -230,7 +230,15 @@
             <div class="columns is-centered has-text-centered">
                 
                 <div class="column is-four-fifths">
-                    <img src="./static/images/teaser.png" alt="LoST teaser" style="margin-bottom: 80px;">
+                    <img src="./static/images/teaser.png" alt="LoST teaser">
+                    <div style="background: linear-gradient(145deg, #f7f9ff 0%, #eef2ff 100%); border-left: 5px solid #5b7cfa; padding: 20px 24px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin: 30px auto; max-width: 90%;">
+    <p style="font-size: 1.1em; line-height: 1.6; color: #4a5162; margin: 0; text-align: left;">
+        <strong style="color: #3a3f58; font-size: 1.15em; display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+            <i class="fas fa-lightbulb" style="color: #f6d365;"></i> TL;DR
+        </strong>
+        LoST replaces token inefficient geometric level-of-detail (LoD) with <strong>Level-of-Semantics</strong> tokenization. Using learnable tokens + nested dropout during training along with our proposed <strong>RIDA</strong> semantic loss, it creates "any-prefix" codes where even the first few tokens decode into complete, plausible shapes. This cuts token usage by <span style="color: #5b7cfa; font-weight: bold;">90–99.9%</span> while achieving SOTA reconstruction and generation.
+    </p>
+</div>
                     <h2 class="title is-3">Abstract</h2>
                      <div class="content has-text-justified">
                     <p>Tokenization is a fundamental technique in the generative modeling of various modalities. In particular, it plays a critical role in autoregressive (AR) models, which have recently emerged as a compelling option for 3D generation. However, optimal tokenization of 3D shapes remains an open question. State-of-the-art (SOTA) methods primarily rely on geometric level-of-detail (LoD) hierarchies, originally designed for rendering and compression. These spatial hierarchies are often token-inefficient and lack semantic coherence for AR modeling. We propose Level-of-Semantics Tokenization (LoST), which orders tokens by semantic salience, such that early prefixes decode into complete, plausible shapes that possess principal semantics, while subsequent tokens refine instance-specific geometric and semantic details. To train LoST, we introduce Relational Inter-Distance Alignment (RIDA), a novel 3D semantic alignment loss, inspired by relational knowledge distillation, that aligns the relational structure of the 3D shape latent space with that of the semantic DINO feature space. Experiments show that LoST achieves SOTA reconstruction, surpassing previous LoD-based 3D shape tokenizers by large margins on both geometric and semantic reconstruction metrics. Moreover, LoST achieves efficient, high-quality AR 3D generation and enables downstream tasks like semantic retrieval, while using only 0.1%–10% of the tokens needed by prior 3D AR models.</p>
@@ -273,8 +281,8 @@
             <center><div class="column is-four-fifths">
                 <h3 class="title is-3">Method Overview</h3><br>
                     <img src="./static/images/overview.png" alt="LoST overview" style="margin-bottom: 20px;">
-                    <p style="text-align: left;">Left: LoST encoder–decoder learns to order trainable register tokens by semantic saliency using the denoising loss and an auxiliary
-semantic loss guided by a pretrained 3D semantic extractor. Right: The 3D semantic extractor itself is pretrained using the proposed
+                    <p style="text-align: left;"><b><i>Left</i></b>: LoST encoder–decoder learns to order trainable register tokens by semantic saliency using the denoising loss and an auxiliary
+semantic loss guided by a pretrained 3D semantic extractor. <b><i>Right</i></b>: The 3D semantic extractor itself is pretrained using the proposed
 Relational Inter-Distance Alignment objective.</p>
             </div></center>
         </div>
@@ -304,19 +312,19 @@ Relational Inter-Distance Alignment objective.</p>
                     <td style="padding: 12px 16px; text-align: right;">Llama-Mesh</td>
                     <td style="padding: 12px 16px;">~ 3758</td>
                     <td style="padding: 12px 16px;">4096</td>
-                    <td style="padding: 12px 16px;">~ 15,392,768</td>
+                    <td style="padding: 12px 16px;">~ 15.4M</td>
                 </tr>
                 <tr style="border-bottom: 1px solid #f1f3f5;">
                     <td style="padding: 12px 16px; text-align: right;">OctGPT</td>
-                    <td style="padding: 12px 16px;">~ 50,000</td>
+                    <td style="padding: 12px 16px;">~ 50K</td>
                     <td style="padding: 12px 16px;">1</td>
-                    <td style="padding: 12px 16px;">50,000</td>
+                    <td style="padding: 12px 16px;">50K</td>
                 </tr>
                 <tr style="border-bottom: 1px solid #f1f3f5;">
                     <td style="padding: 12px 16px; text-align: right;">ShapeLLM-Omni</td>
                     <td style="padding: 12px 16px;">1024</td>
                     <td style="padding: 12px 16px;">3584</td>
-                    <td style="padding: 12px 16px;">3,670,016</td>
+                    <td style="padding: 12px 16px;">~ 3.7M</td>
                 </tr>
                 <tr style="background-color: #fef0da; font-weight: 700; color: #3a3f58; border-bottom: 2px solid #fbd093;">
                     <td style="padding: 16px 16px; text-align: right;">LoST GPT (ours)</td>
@@ -417,12 +425,17 @@ Relational Inter-Distance Alignment objective.</p>
     </section>
 
     <section class="section is-light">
-     <div class="container" style="max-width: 75%;">
+     <div class="container" style="max-width: 75%; margin-top: -60px;">
     <h4 class="title is-4">BibTeX</h4><br>
     <div class="bibtex">
         <pre><code>
-@InProceedings{Dutt_2026_CVPR,    
-} 
+@InProceedings{Dutt_2026_CVPR,
+    author    = {Dutt, Niladri Shekhar and Shi, Zifan and Guerrero, Paul and Huang, Chun-Hao Paul and Ceylan, Duygu and Mitra, Niloy J. and Chen, Xuelin},
+    title     = {LoST: Level of Semantics Tokenization for 3D Shapes},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2026}<!-- pages     = {XXXX-XXXX}  -->
+}
       </code></pre>
     </div>
     </div>
@@ -737,6 +750,9 @@ Relational Inter-Distance Alignment objective.</p>
                 orbit.enablePan = false;
                 orbit.minDistance = 0.05;
                 orbit.maxDistance = 10;
+
+                orbit.autoRotate = true;
+                orbit.autoRotateSpeed = 2.5;
 
                 const ambient = new THREE.AmbientLight(0xffffff, 0.6);
                 const dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
